@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using MyVillas_Api;
 using MyVillas_Api.Data;
 using MyVillas_Api.Logging;
+using MyVillas_Api.Repository;
+using MyVillas_Api.Repository.IRepository;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 //}).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 builder.Services.AddControllers(
 ).AddNewtonsoftJson();
+builder.Services.AddScoped<IVillaRepository,VillaRepository>();
+builder.Services.AddScoped<IVillaNumberRepository, VillaNumberRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
