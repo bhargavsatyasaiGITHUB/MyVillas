@@ -9,5 +9,7 @@ namespace MyVillas_Api.Models.Dto
         [Required]
         public int VillaId { get; set; }
         public string SpecialDetails {  get; set; }
+
+        public VillaDto Villa { get; set; }
     }
 }

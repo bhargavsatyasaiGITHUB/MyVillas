@@ -93,7 +93,7 @@ namespace MyVillas_Api.Controllers
 
                 if (await _dbVilla.GetAsync(u => u.Name.ToLower() == createDto.Name.ToLower()) != null)
                 {
-                    ModelState.AddModelError("", "Villa  Already Exists!!!!!");
+                    ModelState.AddModelError("ErrorMessages", "Villa  Already Exists!!!!!");
                     return BadRequest(ModelState);
                 }
                 if (createDto == null)
